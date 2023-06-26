@@ -29,9 +29,14 @@ A web application that serves as an index of Pokemons, providing pictures, descr
 
 ## Features
 
-- Comprehensive index of pokemon entries.
-- Display of pokemon pictures, descriptions, and other data.
-- Search functionality to find specific pokemon by name or other criteria.
+- [ ] Comprehensive index of pokemon entries.
+- [ ] Display of pokemon pictures, descriptions, and other data.
+- [ ] Search functionality to find specific pokemon by name or other criteria.
+  - [ ] Search by type
+  - [ ] Search by habitat
+- [ ] Allow users to register and have favorite pokemon.
+- [ ] Allow password change.
+<!-- - [ ] Have pokemon news section linked to pokemon official news -->
 
 ## Contributing
 
@@ -51,7 +56,7 @@ Contributions are welcome! If you'd like to contribute to this project, please f
 
 ## Acknowledgments
 
-- The pokemon API for providing the data used in this application [https://pokemon-api.vercel.app/] or [https://pokemon-api.com/].
+- The [pokemon API](https://pokeapi.co/) for providing the data used in this application.
 
 ## Disclaimer
 

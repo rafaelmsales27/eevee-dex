@@ -1,15 +1,22 @@
+from flask import Flask, render_template
 import requests
 
-# base_url = f"https://pokeapi.co/api/v2/pokemon/{poke_name}/"
+app = Flask(__name__)
 
-base_url = 'https://pokeapi.co/api/v2/pokemon/'
+@app.route("/")
+def index():
+    return render_template('index.html')
 
-endpoint = 'eevee'
 
-r = requests.get(base_url + endpoint)
 
-data = r.json()
+# base_url = 'https://pokeapi.co/api/v2/pokemon/'
 
-sprite_front = data['sprites']['other']['']['front_default']
+# endpoint = 'eevee'
 
-print(sprite_front)
+# r = requests.get(base_url + endpoint)
+
+# data = r.json()
+
+# sprite_front = data['sprites']['other']['official-artwork']['front_default']
+
+# print(sprite_front)

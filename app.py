@@ -10,6 +10,6 @@ r = requests.get(base_url + endpoint)
 
 data = r.json()
 
-sprite_front = data['sprites']['other']['official-artwork']['front_default']
+sprite_front = data['sprites']['other']['']['front_default']
 
 print(sprite_front)

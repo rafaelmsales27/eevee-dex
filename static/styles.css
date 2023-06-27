@@ -1,0 +1,72 @@
+.alert {
+    display: flex;
+}
+
+
+#banner {
+    background-color: aqua;
+    padding: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+
+.card {
+    background-color: aquamarine;
+    padding: 20px;
+    margin: 5px;
+    text-align: center;
+}
+
+
+#card_container {
+    background-color: #7fff94;
+    padding: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+#footer {
+    background-color: aqua;
+    padding: 20px;
+    /* margin-top: 10px; */
+    text-align: center;
+}
+
+
+#search_container {
+    background-color: #ccffd4;
+    padding: 30px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+
+#search_box {
+    background-color: #ccffee;
+    width: 640px;
+    /* Can be in percentage also. */
+    height: auto;
+    margin: 0 auto;
+    padding: 10px;
+    position: relative;
+}
+
+
+#search-btn {
+    display: block;
+}
+
+
+#reponse_container {
+    background-color: #ccffee;
+    padding: 100px;
+}
+
+#response_card {
+    background-color: #ccffd4;
+    padding: 20px;
+}

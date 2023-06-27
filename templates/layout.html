@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/static/styles.css" rel="stylesheet">
+    <title>Eevee-Dex: {% block title %}{% endblock %}</title>
+</head>
+
+<body>
+    <!-- Banner -->
+    <div id="banner">
+        -------------------- Banner --------------------
+    </div>
+
+    {% if get_flashed_messages() %}
+    <header>
+        <div class="alert">
+            {{ get_flashed_messages() | join(" ") }}
+        </div>
+    </header>
+    {% endif %}
+
+    <main>
+        {% block main %}{% endblock %}
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div id="footer">
+            -------------------- Footer --------------------
+        </div>
+    </footer>
+
+</body>
+
+</html>

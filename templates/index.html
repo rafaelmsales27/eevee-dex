@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eevee-Dex</title>
-</head>
-<body>
-    Eevee
-</body>
-</html>
+{% extends "layout.html" %}
+
+{% block title %}
+Index
+{% endblock %}
+
+{% block main %}
+    <!-- Search box -->
+    <div id="search_container">
+        Find your favorite pokemon<br>
+        <form action="/result" method="post">
+            <div id="search_box">
+                <input autocomplete="off" id="search" name="poke_name" placeholder="ID or Pokemon Name" type="text">
+            </div>
+            <button id="search-btn" type="submit">Search</button>
+        </form>
+    </div>
+    <!-- Floater cards -->
+    <div id="card_container">
+        {% for poke in list_poke: %}
+        <div class="card">
+            {{ poke['name'] }}
+            <img src="{{ poke['sprites']['front_default'] }}" alt="pokemon picture">
+        </div>
+        {% endfor %}
+    </div>
+{% endblock %}

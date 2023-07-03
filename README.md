@@ -17,6 +17,7 @@ A web application that serves as an index of Pokemons, providing pictures, descr
 
 1. Clone the repository:    `git clone https://github.com/your-username/eevee-dex.git`
 2. Install the required dependencies:    `pip install -r requirements.txt`
+3. Run the web application: `flask run`
 
 ## Usage
 

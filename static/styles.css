@@ -49,9 +49,16 @@
 
 #reponse_container {
     padding: 100px;
+    text-align: center;
 }
 
 #response_card {
+    padding: 20px;
+    margin-right: 100px;
+    width: 40rem;
+}
+
+#response_details {
     padding: 20px;
     margin-right: 100px;
     width: 40rem;

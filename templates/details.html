@@ -46,11 +46,12 @@ Details
                         <div class="col-auto" style="float: left;">Weight: </div> 
                         <div class="col-auto" style="float: left;">{{ pokemon_data['weight'] / 10 }} kg</div>
                     </li>
-
+                    {% for type in range(pokemon_data['types']|length): %}
                     <li class="list-group-item row">
-                        <div class="col-auto" style="float: left;">?????: </div> 
-                        <div class="col-auto" style="float: left;"><p>{{ pokemon_data['types'][0]['type']['name'] }}</p></div>
+                        <div class="col-auto" style="float: left;">Type {{ type }}: </div> 
+                        <div class="col-auto" style="float: left;"><p>{{ pokemon_data['types'][type]['type']['name'] }}</p></div>
                     </li>
+                    {% endfor %}
                 </ul>
 
             </div>

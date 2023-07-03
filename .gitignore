@@ -161,7 +161,7 @@ cython_debug/
 
 
 # virtual env
-website-env
+dex-env
 
 # flask session
 flask_session

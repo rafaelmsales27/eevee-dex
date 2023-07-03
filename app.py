@@ -62,8 +62,8 @@ def index():
     return render_template('index.html', list_poke = list_of_poke)
 
 
-@app.route('/result', methods=['GET', 'POST'])
-def result():
+@app.route('/details', methods=['GET', 'POST'])
+def details():
     """Show result of search pokemon."""
     if request.method == "POST":
         name = request.form["poke_name"].lower()
@@ -91,6 +91,14 @@ def result():
             return render_template('result.html', pokemon_data = resp_json)
         flash(error)
     return redirect(url_for('index'))
+
+@app.route('/pokedex')
+def pokedex():
+    return render_template('pokedex.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
   app.run()

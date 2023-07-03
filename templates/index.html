@@ -1,14 +1,18 @@
 {% extends "layout.html" %}
 
 {% block title %}
-Index
+Home
+{% endblock %}
+
+{% block home_active %}
+active
 {% endblock %}
 
 {% block main %}
     <!-- Search box -->
     <div id="search_container">
         Find your favorite pokemon<br>
-        <form action="/result" method="post">
+        <form action="/details" method="post">
             <div id="search_box">
                 <input autocomplete="off" id="search" name="poke_name" placeholder="ID or Pokemon Name" type="text">
             </div>

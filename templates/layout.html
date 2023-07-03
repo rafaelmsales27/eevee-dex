@@ -13,15 +13,10 @@
 </head>
 
 <body>
-    <!-- Banner -->
-    <div id="banner">
-        -------------------- Banner --------------------
-    </div>
-
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #00cdc0;">
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: #F5F5F5;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">Eevee-Dex</a>
+            <a class="navbar-brand" href="#"><img src="static/eevee-dex-text.png" alt="eevee dex written in pokemon font (logo)" height="32px"></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -41,17 +36,25 @@
         </div>
     </nav>
 
-    {% if get_flashed_messages() %}
-    <header>
-        <div class="alert">
-            {{ get_flashed_messages() | join(" ") }}
-        </div>
-    </header>
-    {% endif %}
+    <div class="bg-image img-fluid" 
+     style="background-image: url('/static/pokebg1.png');
+            max-width: 100%;
+            height: auto;
+            background-repeat: no-repeat;">
 
-    <main>
-        {% block main %}{% endblock %}
-    </main>
+        {% if get_flashed_messages() %}
+        <header>
+            <div class="alert">
+                {{ get_flashed_messages() | join(" ") }}
+            </div>
+        </header>
+        {% endif %}
+
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+
+    </div>
 
     <!-- Footer -->
     <footer>

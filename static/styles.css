@@ -3,16 +3,7 @@
 }
 
 
-#banner {
-    background-color: aqua;
-    padding: 20px;
-    margin-top: 10px;
-    text-align: center;
-}
-
-
 .card {
-    background-color: aquamarine;
     padding: 20px;
     margin: 5px;
     text-align: center;
@@ -20,7 +11,7 @@
 
 
 #card_container {
-    background-color: #cd000d;
+    /* background-color: #f4faff; */
     padding: 30px;
     display: flex;
     justify-content: space-evenly;
@@ -29,30 +20,25 @@
 
 
 #footer {
-    background-color: aqua;
+    background-color: #F5F5F5;
     padding: 20px;
     /* margin-top: 10px; */
     text-align: center;
 }
 
 
-#search_container {
-    background-color: #cd000eb9;
-    padding: 30px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-}
-
-
 #search_box {
     background-color: #ccffee;
-    width: 640px;
+    width: 700px;
     /* Can be in percentage also. */
     height: auto;
     margin: 0 auto;
     padding: 10px;
     position: relative;
+}
+
+#search_container {
+    padding: 300px;
 }
 
 
@@ -62,17 +48,21 @@
 
 
 #reponse_container {
-    background-color: #cd000d;
     padding: 100px;
 }
 
 #response_card {
-    background-color: #ccffd4;
     padding: 20px;
+    margin-right: 100px;
+    width: 40rem;
 }
 
 #navbar {
-    background-color: #7fffce;
+    background-color: #F5F5F5;
     padding: 20px;
     text-align: center;
+}
+
+h5:first-letter {
+    text-transform: uppercase;
 }

@@ -11,6 +11,21 @@ active
 {% block main %}
     <!-- Search box -->
     <div id="search_container">
+      <form action="/details" method="post">
+        <div class="container">
+          <div class="row height d-flex justify-content-center align-items-center">
+            <div class="col-md-6">
+              <div class="form">
+                <i class="fa fa-search"></i>
+                <input type="text" autocomplete="off" class="form-control form-input" name="poke_name" placeholder="ID or Pokemon Name">
+                <span class="left-pan"><button id="search-btn" type="submit">Search</button></span>
+              </div>  
+            </div>   
+          </div>    
+        </div>
+      </form>
+    </div>
+    <!-- <div id="search_container">
         Find your favorite pokemon<br>
         <form action="/details" method="post">
             <div id="search_box">
@@ -18,7 +33,10 @@ active
             </div>
             <button id="search-btn" type="submit">Search</button>
         </form>
-    </div>
+    </div> -->
+
+
+
     <!-- Floater cards -->
     <div id="card_container">
         {% for poke in list_poke: %}
@@ -27,10 +45,12 @@ active
               <h5 class="card-title">{{ poke['name'] }}</h5>
             </div>
             <img src="{{ poke['sprites']['other']['official-artwork']['front_default'] }}" alt="pokemon picture" class="card-img-top">
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">An item</li>
-              <li class="list-group-item">A second item</li>
-            </ul>
+            <span>
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">An item</li>
+                <li class="list-group-item">A second item</li>
+              </ul>
+            </span>
           </div>
           {% endfor %}
     </div>

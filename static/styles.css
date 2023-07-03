@@ -20,7 +20,7 @@
 
 
 #card_container {
-    background-color: #7fff94;
+    background-color: #cd000d;
     padding: 30px;
     display: flex;
     justify-content: space-evenly;
@@ -37,7 +37,7 @@
 
 
 #search_container {
-    background-color: #ccffd4;
+    background-color: #cd000eb9;
     padding: 30px;
     display: flex;
     justify-content: space-evenly;
@@ -62,7 +62,7 @@
 
 
 #reponse_container {
-    background-color: #ccffee;
+    background-color: #cd000d;
     padding: 100px;
 }
 

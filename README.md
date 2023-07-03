@@ -16,9 +16,7 @@ A web application that serves as an index of Pokemons, providing pictures, descr
 ## Installation
 
 1. Clone the repository:    `git clone https://github.com/your-username/eevee-dex.git`
-2. Install the required dependencies:    `npm install`
-3. Set up the environment variables. Create a `.env` file in the root directory and provide the following:    `API_KEY=your-pokemon-api-key`
-4. Start the development server:    `npm start`
+2. Install the required dependencies:    `pip install -r requirements.txt`
 
 ## Usage
 

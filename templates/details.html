@@ -6,25 +6,15 @@ Details
 
 {% block main %}
     <!-- Response from search -->
-    <div class="row">
-    
-
-
-        <div id="reponse_details col-8">
-
-        </div>
-
-    </div>
-
-    <div class="container px-lg-5">
+    <div id="details_container" class="container px-lg-5">
 
         <div class="row mx-lg-n5">
 
           <div class="col py-3 px-lg-5">
 
-            <div id="reponse_container">
+            <div class="card" id="reponse_container">
                 <div class="card-body">
-                <h5 class="card-title">{{ pokemon_data['name'] }}</h5>
+                <h5 class="card-title">{{ pokemon_data['name'] }} #{{ pokemon_data['id'] }} </h5>
                 </div>
                 <img src="{{ pokemon_data['sprites']['other']['official-artwork']['front_default'] }}" alt="pokemon picture" class="card-img-top">
             </div>
@@ -33,7 +23,7 @@ Details
           
           <div class="col py-3 px-lg-5">
 
-            <div id="details_card" class="card">
+            <div class="card" id="details_card">
                 <h5> Details: </h5>
 
                 <ul class="list-group list-group-flush">
@@ -48,8 +38,8 @@ Details
                     </li>
                     {% for type in range(pokemon_data['types']|length): %}
                     <li class="list-group-item row">
-                        <div class="col-auto" style="float: left;">Type {{ type }}: </div> 
-                        <div class="col-auto" style="float: left;"><p>{{ pokemon_data['types'][type]['type']['name'] }}</p></div>
+                        <div class="col-auto" style="float: left;">Type {{ type + 1 }}: </div> 
+                        <div class="col-auto text-capitalize" style="float: left;">{{ pokemon_data['types'][type]['type']['name'] }}</div>
                     </li>
                     {% endfor %}
                 </ul>

@@ -1,7 +1,13 @@
+#about_container {
+    padding-top: 18%;
+    padding-bottom: 18%;
+    padding-right: 15%;
+    padding-left: 15%;
+}
+
 .alert {
     display: flex;
 }
-
 
 .card {
     padding: 20px;
@@ -9,15 +15,26 @@
     text-align: center;
 }
 
+#bg_img {
+    background-image: url('/static/eeveebg.jpg');
+    /* background-image: url('/static/pokebg1.png'); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
 #card_container {
     /* background-color: #f4faff; */
-    padding: 30px;
+    padding: 8%;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
 }
 
+#details_container {
+    padding-top: 250px;
+    padding-bottom: 250px;
+}
 
 #footer {
     background-color: #F5F5F5;
@@ -28,27 +45,35 @@
 
 
 #search_box {
-    background-color: #ccffee;
-    width: 700px;
-    /* Can be in percentage also. */
-    height: auto;
-    margin: 0 auto;
-    padding: 10px;
+    display: inline-block;
+    width: 100%;
+    border-radius: 3px;
+    padding: 4px 55px 4px 15px;
     position: relative;
+    background: #fff;
+    border: 1px solid #ddd;
+}
+
+.search-btn {
+    border-radius: 3px;
+    float: right;
 }
 
 #search_container {
-    padding: 300px;
+    padding-top: 20%;
+    padding-right: 15%;
+    padding-left: 15%;
+    padding-bottom: 10%;
 }
 
 
-#search-btn {
+/* #search-btn {
     display: block;
-}
+} */
 
 
 #reponse_container {
-    padding: 100px;
+    padding: 20px;
     text-align: center;
 }
 

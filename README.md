@@ -37,6 +37,7 @@ A web application that serves as an index of Pokemons, providing pictures, descr
 <!--  - [ ] Search by habitat -->
 - [ ] Allow users to register and have favorite pokemon.
 - [ ] Allow password change.
+- [ ] Add style to types.
 <!-- - [ ] Have pokemon news section linked to pokemon official news -->
 
 ## Contributing

@@ -29,10 +29,12 @@ A web application that serves as an index of Pokemons, providing pictures, descr
 ## Features
 
 - [ ] Comprehensive index of pokemon entries.
-- [ ] Display of pokemon pictures, descriptions, and other data.
-- [ ] Search functionality to find specific pokemon by name or other criteria.
-  - [ ] Search by type
-  - [ ] Search by habitat
+- [x] Display of pokemon pictures, weight and height.
+  - [ ] Display evolutions
+  - [x] Display type
+- [x] Search functionality to find specific pokemon by name or id.
+<!--  - [ ] Search by type -->
+<!--  - [ ] Search by habitat -->
 - [ ] Allow users to register and have favorite pokemon.
 - [ ] Allow password change.
 <!-- - [ ] Have pokemon news section linked to pokemon official news -->

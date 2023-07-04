@@ -6,10 +6,47 @@ Details
 
 {% block main %}
     <!-- Response from search -->
-    <div id="reponse_container">
-        <div id="response_card">
-            {{ pokemon_data['name'] }}
-            <img src="{{ pokemon_data['sprites']['other']['official-artwork']['front_default'] }}" alt="pokemon picture">
+    <div id="details_container" class="container px-lg-5">
+
+        <div class="row mx-lg-n5">
+
+          <div class="col py-3 px-lg-5">
+
+            <div class="card" id="reponse_container">
+                <div class="card-body">
+                <h5 class="card-title">{{ pokemon_data['name'] }} #{{ pokemon_data['id'] }} </h5>
+                </div>
+                <img src="{{ pokemon_data['sprites']['other']['official-artwork']['front_default'] }}" alt="pokemon picture" class="card-img-top">
+            </div>
+
+          </div>
+          
+          <div class="col py-3 px-lg-5">
+
+            <div class="card" id="details_card">
+                <h5> Details: </h5>
+
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item row ">
+                        <div class="col-auto" style="float: left;">Height: </div> 
+                        <div class="col-auto" style="float: left;">{{ pokemon_data['height'] / 10 }} m</div>
+                    </li>
+
+                    <li class="list-group-item row">
+                        <div class="col-auto" style="float: left;">Weight: </div> 
+                        <div class="col-auto" style="float: left;">{{ pokemon_data['weight'] / 10 }} kg</div>
+                    </li>
+                    {% for type in range(pokemon_data['types']|length): %}
+                    <li class="list-group-item row">
+                        <div class="col-auto" style="float: left;">Type {{ type + 1 }}: </div> 
+                        <div class="col-auto text-capitalize" style="float: left;">{{ pokemon_data['types'][type]['type']['name'] }}</div>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+            </div>
+
+          </div>
         </div>
     </div>
 {% endblock %}

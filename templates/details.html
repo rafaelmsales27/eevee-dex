@@ -16,7 +16,12 @@ Details
                 <div class="card-body">
                 <h5 class="card-title">{{ pokemon_data['name'] }} #{{ pokemon_data['id'] }} </h5>
                 </div>
+                {% if pokemon_data['sprites']['other']['official-artwork']['front_default'] != None %}
                 <img src="{{ pokemon_data['sprites']['other']['official-artwork']['front_default'] }}" alt="pokemon picture" class="card-img-top">
+                {% endif %}
+                {% if pokemon_data['sprites']['other']['official-artwork']['front_default'] == None %}
+                <img src="static\poke_ball_icon.png" alt="pokemon picture" class="card-img-top">
+                {% endif %}
             </div>
 
           </div>

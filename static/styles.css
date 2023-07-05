@@ -41,7 +41,7 @@ a {
 }
 
 #footer {
-    background-color: #F5F5F5;
+    background-color: #F5F5F5 !important;
     padding: 20px;
     /* margin-top: 10px; */
     text-align: center;
@@ -64,7 +64,7 @@ a {
 }
 
 #search_container {
-    padding-top: 20%;
+    padding-top: 15%;
     padding-right: 15%;
     padding-left: 15%;
     padding-bottom: 10%;
@@ -75,6 +75,16 @@ a {
     display: block;
 } */
 
+#pokedex_container {
+    padding: 5%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.pokedex_card {
+    padding: 1%;
+}
 
 #reponse_container {
     padding: 20px;

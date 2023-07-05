@@ -20,7 +20,6 @@ def pokequery(url):
         response = requests.get(url)
         response.raise_for_status()
         if response.status_code != 200 or response == None:
-            print('ERROR???????????????????????????????????????????????????????????????????')
             return render_template('error.html', top=response.status_code, bottom='Something went wrong')
         else:
             return response
@@ -31,7 +30,8 @@ def pokequery(url):
 MAX_N = pokequery(BASE_URL)
 MAX_N = MAX_N.json()
 MAX_N = int(MAX_N['count'])
-POKEDEX_PER_PAGE = 21
+# POKEDEX_PER_PAGE = 21
+POKEDEX_PER_PAGE = 7
 
 @app.route('/')
 def index():
@@ -85,7 +85,6 @@ def details():
     if (name is None) or (name == ''):
         error = "Empty search entry."
         flash(error)
-        # return render_template('error.html', top=response.status_code, bottom=error)
         return redirect(url_for('index'))
     elif len(name.split()) > 1:
         error = 'You searched more than one word.'
@@ -114,25 +113,58 @@ def details():
 
 @app.route('/pokedex')
 def pokedex():
-    # Query API and record starter info into the first position of empty list
-    r = pokequery(BASE_URL + '?offset=0&limit='+str(POKEDEX_PER_PAGE)).json()
+    # Get the current page number from the request query parameters
+    page = int(request.args.get('page', 1))
 
-    # Start emmpty list to get results from PokeAPI
-    pokedex_content = [r]
+    # Calculate the offset based on the current page
+    offset = (page - 1) * POKEDEX_PER_PAGE
 
-    # Define number of pages
-    n_pokes = int(r['count'])
-    n_pages = int(n_pokes / POKEDEX_PER_PAGE)
+    # Make the RESTful API call with the limit and offset parameters
+    url = BASE_URL+'?offset='+ str(offset) + '&limit=' + str(POKEDEX_PER_PAGE)
+    api_response = pokequery(url).json()
 
-    # Get page number from GET argument
-    current_page = request.args['page']
-    if current_page or current_page.isdigit():
-        current_page = int(current_page)
-    else:
-        current_page = 1
+    # Extract the results from the API response
+    results = api_response['results']
 
-        
-    return render_template('pokedex.html', content=pokedex_content, current_page=current_page, per_page=POKEDEX_PER_PAGE, n_pages=n_pages)
+    # Get the total number of results from the API response
+    total_results = api_response['count']
+
+    # Calculate the total number of pages
+    total_pages = (total_results + POKEDEX_PER_PAGE - 1) // POKEDEX_PER_PAGE 
+
+    # validate page input
+    if page > total_pages:
+        flash('Wrong page number.')
+        return redirect(url_for('index'))
+
+    for result in results:
+        img = pokequery(BASE_URL + result['name']).json()
+        img = img["sprites"]["front_default"]
+        if img is None:
+            img = 'static\poke_ball_icon.png'
+        result['img'] = img
+
+    print(results)
+
+    # Calculate the range of page numbers to display
+    max_page_buttons = 4  # Adjust this value as per your needs
+    half_buttons = max_page_buttons // 2
+    start_page = max(page - half_buttons, 1)
+    end_page = min(start_page + max_page_buttons - 1, total_pages)
+
+    if end_page - start_page < max_page_buttons - 1:
+        start_page = max(end_page - max_page_buttons + 1, 1)
+
+    page_range = range(start_page, end_page + 1)
+
+    # Render the template with the paginated results and pagination information
+    return render_template(
+        'pokedex.html',
+        results=results,
+        page=page,
+        page_range=page_range,
+        total_pages=total_pages,
+    )
 
 @app.route('/about')
 def about():

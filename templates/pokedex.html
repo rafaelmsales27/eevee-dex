@@ -11,47 +11,45 @@ active
 {% block main %}
     <!-- List of all pokemons -->
     <div id="pokedex_container">
-        <div id="pokedex_card">       
-            <a href="/details?search=eevee">
-                <div class="card" style="width: 14rem;">
-                    <div class="card-body">
-                    <h5 class="card-title">eevee</h5>
+        {% for result in results %} 
+            <div class="pokedex_card"> 
+                <a href="/details?search={{ result['name'] }}">
+                    <div class="card h-100" style="width: 14rem;">
+                        <div class="card-body">
+                        <h5 class="card-title text-capitalize">{{ result['name'] }}</h5>
+                        </div>
+                        <img src="{{ result['img'] }}" alt="Pokemon image">
                     </div>
-                    <img src="" alt="">
-                    <!-- <ul class="list-group list-group-flush">
-                    <li class="list-group-item">An item</li>
-                    <li class="list-group-item">A second item</li>
-                    </ul> -->
-                </div>
-            </a>     
-        </div>
+                </a>     
+            </div>
+        {% endfor %}
     </div>
 
 
 
     <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">
-            <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-            {% if current_page != 1 %}
-                <li class="page-item"><a class="page-link">...</a></li>
+            {% if page > 1 %}
+                <li class="page-item"><a class="page-link" href="/pokedex?page={{ page - 1 }}">&laquo;</a></li>
+                {% if page != 2 %}
+                    <li class="page-item"><a class="page-link">...</a></li>
+                {% endif %}
             {% endif %}
 
-            {% if current_page < (n_pages - 3) %}
-                {% for page_n in range(current_page, (current_page + 3)): %}
-                    <li class="page-item"><a class="page-link" href="#">{{ page_n }}</a></li>
-                {% endfor %}
-            {% endif %}
-
-            {% if not(current_page > (n_pages - 3)) %}
-            {% for page_n in range((current_page - 3), current_page): %}
-                <li class="page-item"><a class="page-link" href="#">{{ page_n }}</a></li>
+            {% for page_num in page_range %}
+                {% if page_num == page %}
+                    <li class="page-item active"><a class="page-link">{{ page_num }}</a></li>
+                {% else %}
+                    <li class="page-item"><a class="page-link" href="/pokedex?page={{ page_num }}">{{ page_num }}</a></li>
+                {% endif %}
             {% endfor %}
-        {% endif %}
 
-            {% if current_page != n_pages %}
-                <li class="page-item"><a class="page-link">...</a></li>
+            {% if page < total_pages %}
+                {% if page != (total_pages - 1) %}
+                    <li class="page-item"><a class="page-link">...</a></li>
+                {% endif %}
+                <li class="page-item"><a class="page-link" href="/pokedex?page={{ page + 1 }}">&raquo;</a></li>
             {% endif %}
-            <li class="page-item"><a class="page-link" href="#">Next</a></li>
         </ul>
       </nav>
 {% endblock %}

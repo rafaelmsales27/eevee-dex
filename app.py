@@ -131,7 +131,7 @@ def pokedex():
     else:
         current_page = 1
 
-
+        
     return render_template('pokedex.html', content=pokedex_content, current_page=current_page, per_page=POKEDEX_PER_PAGE, n_pages=n_pages)
 
 @app.route('/about')

@@ -50,9 +50,6 @@ def index():
     print(random_start)
 
     if r is None:
-        # Get data to json
-        # print('ERROR!!!!!!!!!!!!!!!!!!!!!!!!!!!!')
-        # return render_template('error.html', top='200', bottom='Something went wrong')
         # Read the JSON file
         with open('static/default.json') as file:
             json_data = json.load(file)

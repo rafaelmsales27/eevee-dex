@@ -16,7 +16,7 @@ active
         <div class="search-box">
           <form class="search-form d-flex align-items-center flex-nowrap" action="/details" method="get">
             <input type="text" autocomplete="off" class="form-control form-input" name="search" placeholder="ID or Pokemon Name">
-              <button class="btn btn-light search-btn">
+              <button type="submit" class="btn btn-light search-btn">
                 Search
               </button>
           </form>
@@ -34,7 +34,7 @@ active
             <div class="card-body">
               <h5 class="card-title">{{ poke['name'] }} #{{ poke['id'] }}</h5>
             </div>
-            <img src="{{ poke['sprites']['other']['official-artwork']['front_default'] }}" alt="pokemon picture" class="card-img-top">
+            <img src="{{ poke['sprites']['other']['official-artwork']['front_default'] }}" alt="pokemon picture" class="card-img">
             <!-- <ul class="list-group list-group-flush">
               <li class="list-group-item">An item</li>
               <li class="list-group-item">A second item</li>

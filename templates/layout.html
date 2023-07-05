@@ -36,11 +36,11 @@
         </div>
     </nav>
 
-    <div class="bg-image img-fluid" id="bg_img">
+    <div class="bg-image img-fluid p-1" id="bg_img">
 
         {% if get_flashed_messages() %}
         <header>
-            <div class="alert">
+            <div class="alert alert-warning" role="alert">
                 {{ get_flashed_messages() | join(" ") }}
             </div>
         </header>

@@ -31,6 +31,7 @@ def pokequery(url):
 MAX_N = pokequery(BASE_URL)
 MAX_N = MAX_N.json()
 MAX_N = int(MAX_N['count'])
+POKEDEX_PER_PAGE = 21
 
 @app.route('/')
 def index():
@@ -83,10 +84,17 @@ def details():
 
     if (name is None) or (name == ''):
         error = "Empty search entry."
+        flash(error)
+        # return render_template('error.html', top=response.status_code, bottom=error)
+        return redirect(url_for('index'))
     elif len(name.split()) > 1:
         error = 'You searched more than one word.'
+        flash(error)
+        return redirect(url_for('index'))
     elif name.isnumeric() and not (int(name) > 0 and int(name) <= MAX_N):
         error = 'Invalid pokemon name or ID.'
+        flash(error)
+        return redirect(url_for('index'))
 
     print(name)
 
@@ -103,22 +111,28 @@ def details():
         return render_template('details.html', pokemon_data = resp_json)
     flash(error)
 
+
 @app.route('/pokedex')
 def pokedex():
-    # Start emmpty list to get results from PokeAPI
-    page_content = []
-
     # Query API and record starter info into the first position of empty list
-    # r_content = pokequery(BASE_URL)
+    r = pokequery(BASE_URL + '?offset=0&limit='+str(POKEDEX_PER_PAGE)).json()
 
-    # Get data form json
-    with open('static/page.json') as file:
-            json_data = json.load(file)
+    # Start emmpty list to get results from PokeAPI
+    pokedex_content = [r]
 
-    # Convert JSON data to a dictionary
-    data_dict = dict(json_data)
-    page_content.append(data_dict)
-    return render_template('pokedex.html', page_content = page_content)
+    # Define number of pages
+    n_pokes = int(r['count'])
+    n_pages = int(n_pokes / POKEDEX_PER_PAGE)
+
+    # Get page number from GET argument
+    current_page = request.args['page']
+    if current_page or current_page.isdigit():
+        current_page = int(current_page)
+    else:
+        current_page = 1
+
+
+    return render_template('pokedex.html', content=pokedex_content, current_page=current_page, per_page=POKEDEX_PER_PAGE, n_pages=n_pages)
 
 @app.route('/about')
 def about():

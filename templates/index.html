@@ -28,7 +28,8 @@ active
 
     <!-- Floater cards -->
     <div id="card_container">
-        {% for poke in list_poke: %}
+      {% for poke in list_poke: %}
+      <a href="/details?search={{ poke['name'] }}">
         <div class="card" style="width: 14rem;">
             <div class="card-body">
               <h5 class="card-title">{{ poke['name'] }} #{{ poke['id'] }}</h5>
@@ -39,6 +40,8 @@ active
               <li class="list-group-item">A second item</li>
             </ul> -->
           </div>
+      </a>
           {% endfor %}
     </div>
+
 {% endblock %}

@@ -28,7 +28,7 @@ A web application that serves as an index of Pokemons, providing pictures, descr
 
 ## Features
 
-- [ ] Comprehensive index of pokemon entries.
+- [x] Comprehensive index of pokemon entries.
 - [x] Display of pokemon pictures, weight and height.
   - [ ] Display evolutions
   - [x] Display type
